@@ -121,9 +121,7 @@ def tikz_square_diagram(widths,
         colors = ['red', 'green', 'blue', 'yellow', 'magenta', 'olive',
                   'violet', 'brown', 'teal', 'orange', 'purple', 'cyan']
 
-    print('\\begin{tikzpicture}[scale=8]')
-
-    print('\n\t\Large\n')
+    print('\\begin{tikzpicture}[scale=8]\n')
 
     xx = cum_steps(widths)
 
@@ -164,7 +162,7 @@ def plt_square_diagram(widths,
 
     if rect_labels is None:
         num_rectangles = len(heights_matrix[0])
-        rect_labels = [str(i) for i in range(1, num_rectangles + 1)]
+        rect_labels = [str(i) for i in range(num_rectangles)]
 
     if colors is None:
         colors = ['orange', 'lightgreen', 'yellow', 'hotpink',
@@ -214,13 +212,11 @@ def plt_square_diagram(widths,
 
 
 # EXAMPLE
-#
-# list_of_priors = [.1, .1, .4, .3, .1]
-# matrix_of_likelihoods = [[.1, .7, .2],
-#                           [.1, .5, .4],
-#                           [.5, .5, 0],
-#                           [0, 0, 1],
-#                           [.85, .15, 0]]
 
+# list_of_priors = [4/8, 1/8, 3/8]
+# matrix_of_likelihoods = [[.092, .299, .368, .200, .041],
+#                          [.063, .250, .375, .250, .063],
+#                          [.041, .200, .368, .299, .092]]
 # tikz_square_diagram(list_of_priors, matrix_of_likelihoods)
-# plt_square_diagram(list_of_priors, matrix_of_likelihoods, special_label='2')
+# plt_square_diagram(list_of_priors, matrix_of_likelihoods)
+
