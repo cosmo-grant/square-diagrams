@@ -41,7 +41,7 @@ The function `plt_square_diagram()` creates a matplotlib figure.
 
 Note:
   - `plt_square_diagram()` returns the `fig` and `ax` objects, so you can modify the plot.
-  - For both functions, you can customize the column labels (), rectangle labels, and colors using the `col_labels`, `rect_labels` and `colors` parameters, which each accept a list of strings.
+  - For both functions, you can customize the column labels, rectangle labels, and colors using the `col_labels`, `rect_labels` and `colors` parameters, which each accept a list of strings.
 
 Bayes Rule says: after observing the result of the experiment, multiply your priors by the likelihoods and re-proportion so they add up to 1, giving your posteriors. We can illustrate Bayes Rule by providing the relevant outcome label&mdash;in this case, `'3'`&mdash;to the `special_label` parameter using the square diagrams.
 
