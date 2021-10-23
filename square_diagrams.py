@@ -4,24 +4,9 @@ Created on Mon Dec 14 16:28:55 2020
 
 @author: Cosmo
 
-Makes square diagrams using tikz and matplotlib.
+Provides functions to make square diagrams using tikz and matplotlib.
 
-A square diagram is a square divided into columns of different widths, and
-each column divided into rectangles of different heights. It can be used, for
-example, to represent a Bayesian experiment: a hypothesis's prior is
-represented by the corresponding column's width, and the likelihood of an
-outcome given the hypothesis is represented by the corresponding rectangle's
-height.
-
-In addition, by making all rectangles except those corresponding to a
-particular outcome semi-transparent, a square diagram also helps illustrate
-Bayes Theorem.
-
-The function tikz_square_diagram prints tikz instructions. (TikZ is a LaTeX
-package.) If you copy and paste the instructions into your LaTeX document, with
-the tikz package installed, it will make a square diagram. The function
-plt_square_diagram is similar, but creates a matplotlib figure instead, so
-doesn't require LaTeX.
+See README for details.
 """
 
 
@@ -115,7 +100,7 @@ def tikz_square_diagram(widths,
 
     if rect_labels is None:
         num_rectangles = len(heights_matrix[0])
-        rect_labels = [str(i) for i in range(1, num_rectangles + 1)]
+        rect_labels = [str(i) for i in range(num_rectangles)]
 
     if colors is None:
         colors = ['red', 'green', 'blue', 'yellow', 'magenta', 'olive',
@@ -201,6 +186,7 @@ def plt_square_diagram(widths,
                 ax.text(.5 * (x1 + x2),
                         .5 * (y1 + y2),
                         rect_label,
+                        fontsize=8,
                         horizontalalignment='center',
                         verticalalignment='center',
                 )
@@ -209,14 +195,3 @@ def plt_square_diagram(widths,
     ax.autoscale(tight=True)
 
     return fig, ax
-
-
-# EXAMPLE
-
-# list_of_priors = [4/8, 1/8, 3/8]
-# matrix_of_likelihoods = [[.092, .299, .368, .200, .041],
-#                          [.063, .250, .375, .250, .063],
-#                          [.041, .200, .368, .299, .092]]
-# tikz_square_diagram(list_of_priors, matrix_of_likelihoods)
-# plt_square_diagram(list_of_priors, matrix_of_likelihoods)
-
